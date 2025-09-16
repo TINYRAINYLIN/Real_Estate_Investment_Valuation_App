@@ -77,25 +77,14 @@ This project builds an end-to-end ML pipeline to **predict residential property 
 
 ---
 
-## 📈 Model Performance  
+### 📊 Model Performance Comparison (Test Set)
 
-### Main Metrics  
-| Model                 | R² (Test) | RMSE   | MAE   |
-|-----------------------|-----------|--------|-------|
-| Ridge (scaled target) | 🔄 Pending | —      | —     |
-| Random Forest         | 🔄 Pending | —      | —     |
-| LightGBM              | 🔄 Pending | —      | —     |
+| Model          | R² (Test) | Adj R² (Test) | RMSE     | MAE     | MAPE   | Within $10k | Within $20k | Within $50k | Within 5% | Within 10% |
+|----------------|-----------|---------------|----------|---------|--------|-------------|-------------|-------------|-----------|------------|
+| **Ridge**      | 0.6962    | 0.6919        | 422,633  | 117,826 | 52.37% | 8.85%       | 16.98%      | 40.10%      | 18.84%    | 34.36%     |
+| **RandomForest** | 0.8743  | 0.8725        | 271,898  | 10,989  | 2.06%  | 85.23%      | 95.13%      | 98.60%      | 93.85%    | 97.77%     |
+| **LightGBM**   | 0.8401    | 0.8378        | 306,639  | 24,478  | 5.74%  | 53.30%      | 78.40%      | 94.17%      | 72.80%    | 88.02%     |
 
-<details>
-  <summary>🔎 Additional Metrics</summary>
-
-| Model                 | Adj R² | Median AE | MAPE  | Within $10k |
-|-----------------------|--------|-----------|-------|-------------|
-| Ridge (scaled target) | 🔄 —   | —         | —     | —           |
-| Random Forest         | 🔄 —   | —         | —     | —           |
-| LightGBM              | 🔄 —   | —         | —     | —           |
-
-</details>  
 
 ---
 
