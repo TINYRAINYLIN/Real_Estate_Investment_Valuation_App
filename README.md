@@ -91,9 +91,9 @@ An end-to-end machine learning pipeline for predicting residential property valu
 - **Waterfall Plot:** Provides transparency for individual homes by showing feature contributions  
 
 📊 Example SHAP Visuals:  
-![Beeswarm](reports/shap_beeswarm.png)  
-![Dependence](reports/shap_dependence_calculatedfinishedsquarefeet.png)  
-![Waterfall](reports/waterfall.png)  
+![Beeswarm](https://github.com/TINYRAINYLIN/Zillow_Property_Price_Prediction/blob/main/reports/figures/old_shap_beeswarm.png))  
+![Dependence](https://github.com/TINYRAINYLIN/Zillow_Property_Price_Prediction/blob/main/reports/figures/bees_space.png)  
+![Waterfall](https://github.com/TINYRAINYLIN/Zillow_Property_Price_Prediction/blob/main/reports/figures/waterfall.png)  
 
 ---
 
@@ -102,8 +102,8 @@ An end-to-end machine learning pipeline for predicting residential property valu
 - **CircleMarker Map:** Property-level predictions with interactive color coding  
 
 🌍 Example Maps:  
-![Heatmap](reports/heatmap_predictions.png)  
-![CircleMarker](reports/circlemarker_predictions.png)  
+![Heatmap](https://github.com/TINYRAINYLIN/Zillow_Property_Price_Prediction/blob/main/reports/figures/Heatmap.png)  
+![CircleMarker](https://github.com/TINYRAINYLIN/Zillow_Property_Price_Prediction/blob/main/reports/figures/Colormap.png)  
 
 ---
 
