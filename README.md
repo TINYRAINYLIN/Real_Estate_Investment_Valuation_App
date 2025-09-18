@@ -1,26 +1,23 @@
 # 🏡 Zillow Property Value Prediction  
 
-## 📌 Project Status  
-⚠️ **Work in Progress**  
+## 📌 Current Status  
+- ✅ Data Preparation, Feature Engineering, Modeling, Evaluation  
+- ✅ Explainability (SHAP global + local interpretability)  
+- ✅ Geospatial Analysis (Folium heatmaps + property-level maps)  
+- ⏳ Deployment phase in progress:  
+  - Building interactive **Streamlit app** for predictions  
+  - Containerization with **Docker**  
+  - Hosting planned on **AWS/Streamlit Cloud**  
 
-- ✅ Phase 1: Data Prep & EDA  
-- ✅ Phase 2: Feature Engineering  
-- ✅ Phase 3: Modeling (Ridge + Random Forest)  
-- 🔄 Phase 3: LightGBM (in progress)  
-- ⏳ Phase 4: Explainability (SHAP planned)  
-- ⏳ Phase 5: Deployment (Streamlit on AWS)  
-- ⏳ Phase 6: Packaging & Storytelling  
 
 ---
 
 ## 📌 Overview  
-This project builds an end-to-end ML pipeline to **predict residential property values** and explain the drivers of home prices.  
-
-- Cleaned and engineered Zillow dataset  
-- Developed regression models (**Ridge, Random Forest, LightGBM**)  
-- Ridge implemented with **scaling** (no log transform)  
-- Random Forest & LightGBM tuned with **RandomizedSearchCV (5-fold CV)**  
-- **SHAP explainability** planned for feature importance and local explanations  
+An end-to-end machine learning pipeline for predicting residential property values using Zillow housing data.  
+- Improved **R² from 0.69 → 0.87** with ensemble methods  
+- Reduced **RMSE by ~150k** compared to baseline Ridge Regression  
+- Delivered **explainable AI** insights with SHAP (global + local explanations)  
+- Built **geospatial visualizations** (heatmaps & property-level maps) to highlight regional pricing trends  
 - Deployment planned on **AWS with Streamlit + Docker + S3**  
 
 ---
@@ -88,14 +85,25 @@ This project builds an end-to-end ML pipeline to **predict residential property 
 
 ---
 
-## 📊 Explainability (SHAP)  
-- **Planned:**  
-  - Apply SHAP TreeExplainer to Random Forest & LightGBM  
-  - Generate **beeswarm summary plots** (global feature importance)  
-  - Generate **waterfall plots** (local explanations)  
+### Explainability (SHAP)  
+- **Beeswarm Plot:** Confirms key drivers are price per sqft, finished square footage, and location  
+- **Dependence Plots:** Show diminishing returns for square footage and variability in lot size effect  
+- **Waterfall Plot:** Provides transparency for individual homes by showing feature contributions  
 
-- **Future extension:**  
-  - Build **geospatial Folium map** for predicted values by ZIP code  
+📊 Example SHAP Visuals:  
+![Beeswarm](reports/shap_beeswarm.png)  
+![Dependence](reports/shap_dependence_calculatedfinishedsquarefeet.png)  
+![Waterfall](reports/waterfall.png)  
+
+---
+
+### Geospatial Analysis  
+- **Heatmap:** Clusters of high-value properties around Santa Monica, Beverly Hills, and coastal LA  
+- **CircleMarker Map:** Property-level predictions with interactive color coding  
+
+🌍 Example Maps:  
+![Heatmap](reports/heatmap_predictions.png)  
+![CircleMarker](reports/circlemarker_predictions.png)  
 
 ---
 
@@ -108,25 +116,7 @@ This project builds an end-to-end ML pipeline to **predict residential property 
 
 ---
 
-## ☁️ Deployment (Planned on AWS)  
-- Build interactive **Streamlit app** for property value prediction  
-- Host on **AWS** with:  
-  - **Model artifacts** stored on S3  
-  - **App containerized with Docker** for portability  
-  - Public URL for recruiters to test predictions  
-- Features:  
-  - Sidebar inputs → sqft, bedrooms, bathrooms, year built, ZIP code  
-  - Output → **Predicted price** (formatted as \$123,456)  
-  - Display **top 5 features influencing prediction** (via SHAP values)  
-
----
-
 ## 🚀 Next Steps  
-- [ ] Finish LightGBM tuning & test evaluation  
-- [ ] Evaluate Ridge, RF, and LGBM on **test set** (final metrics)  
-- [ ] Add model comparison bar chart (**R² / RMSE across Ridge, RF, LGBM**)  
-- [ ] Apply SHAP analysis (RF + LGBM, global + local)  
-- [ ] Build geospatial map of predicted values by ZIP code  
 - [ ] Deploy Streamlit app on **AWS**  
 
 ---
