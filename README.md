@@ -1,4 +1,4 @@
-# 🏡 Zillow Property Value Prediction  
+# 🏡 Real Estate Investment Valuation App
 
 ## 📌 Current Status  
 - ✅ Data Preparation, Feature Engineering, Modeling, Evaluation  
