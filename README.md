@@ -103,7 +103,6 @@ An end-to-end machine learning pipeline for predicting residential property valu
 
 🌍 Example Maps:  
 ![Heatmap](https://github.com/TINYRAINYLIN/Real_Estate_Investment_Valuation_App/blob/main/reports/figures/Heatmap.png)
-![CircleMarker](https://github.com/TINYRAINYLIN/Real_Estate_Investment_Valuation_App/blob/main/reports/figures/CircleMarker.png)
 
 
 ---
