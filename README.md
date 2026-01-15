@@ -6,7 +6,7 @@
 - ✅ Data Preparation, Feature Engineering, Modeling, Evaluation  
 - ✅ Explainability (SHAP global + local interpretability)  
 - ✅ Geospatial Analysis (Folium heatmaps + property-level maps)  
-- ✅ Deployment Complete (Interactive **Streamlit app** live and running)
+- ✅ Deployment Complete (Interactive Streamlit app live and running)
 
 🌐 **Live Demo:** [PropertyIQ](https://realestateinvestmentvaluationapp-ac5hrwunnzbgqxbxlkuwjz.streamlit.app/)
 
@@ -75,6 +75,7 @@ An end-to-end machine learning pipeline for predicting residential property valu
 |----------------|-----------|---------------|----------|---------|--------|-------------|-------------|-------------|-----------|------------|
 | **RandomForest** | 0.8743  | 0.8725        | 271,898  | 10,989  | 2.06%  | 85.23%      | 95.13%      | 98.60%      | 93.85%    | 97.77%     |
 | **LightGBM**   | 0.8401    | 0.8378        | 306,639  | 24,478  | 5.74%  | 53.30%      | 78.40%      | 94.17%      | 72.80%    | 88.02%     |
+| **Ridge**      | 0.6962    | 0.6919        | 422,633  | 117,826 | 52.37% | 8.85%       | 16.98%      | 40.10%      | 18.84%    | 34.36%     |
 
 **🏆 Random Forest** selected as primary model for deployment due to superior accuracy and precision.
 
@@ -101,7 +102,6 @@ An end-to-end machine learning pipeline for predicting residential property valu
 
 📍 Example Maps:  
 ![Heatmap](https://github.com/TINYRAINYLIN/Real_Estate_Investment_Valuation_App/blob/main/reports/figures/Heatmap.png)  
-![Property Map](https://github.com/TINYRAINYLIN/Real_Estate_Investment_Valuation_App/blob/main/reports/figures/CircleMarker.png)  
 
 ---
 
@@ -135,17 +135,6 @@ An end-to-end machine learning pipeline for predicting residential property valu
 
 ---
 
-## 🚀 Next Steps  
-- ✅ **PropertyIQ deployed and live on Streamlit Cloud**
-- [ ] Add SHAP explainability for feature importance in web app
-- [ ] Implement geospatial visualization with Folium maps in app
-- [ ] Add model comparison interface (Random Forest vs LightGBM)
-- [ ] Create property comparison feature
-- [ ] Add historical price trend analysis
-- [ ] Optimize for mobile responsiveness
-
----
-
 ## 🚀 Quick Start
 
 ### Try the Live App
@@ -175,3 +164,4 @@ streamlit run app.py
 
 
 **🌟 Star this repo if it helped you!** | **🔗 [Live Demo - PropertyIQ](https://realestateinvestmentvaluationapp-ac5hrwunnzbgqxbxlkuwjz.streamlit.app/)**
+
