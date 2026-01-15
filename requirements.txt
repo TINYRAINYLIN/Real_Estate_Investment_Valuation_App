@@ -7,6 +7,8 @@ lightgbm
 ipykernel
 requests
 dill
-
+streamlit
+joblib
+plotly
 
 #-e .
