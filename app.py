@@ -11,7 +11,7 @@ from src.pipeline.predicting_pipeline_v2 import PredictPipeline, CustomData
 
 # Page config
 st.set_page_config(
-    page_title="Zillow Property Value Predictor",
+    page_title="PropertyIQ - AI Property Valuation",
     page_icon="🏡",
     layout="wide",
     initial_sidebar_state="expanded"
@@ -56,7 +56,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # Header
-st.markdown('<div class="main-header">🏡 Zillow Property Value Predictor</div>', unsafe_allow_html=True)
+st.markdown('<div class="main-header">🏡 PropertyIQ</div>', unsafe_allow_html=True)
 st.markdown('<div class="sub-header">AI-powered property valuation using Random Forest</div>', unsafe_allow_html=True)
 
 # Sidebar inputs
@@ -160,7 +160,6 @@ lot_size = st.sidebar.number_input(
 st.sidebar.markdown("---")
 
 # Model info
-st.sidebar.markdown("---")
 st.sidebar.subheader("🤖 Model")
 st.sidebar.info("**Random Forest**\n\n87.4% R² Score\n\n85.2% within $10k")
 
