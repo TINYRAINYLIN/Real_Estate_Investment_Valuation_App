@@ -6,10 +6,7 @@
 - ✅ Data Preparation, Feature Engineering, Modeling, Evaluation  
 - ✅ Explainability (SHAP global + local interpretability)  
 - ✅ Geospatial Analysis (Folium heatmaps + property-level maps)  
-- ✅ **Deployment Complete:**  
-  - ✅ Interactive **Streamlit app** live and running
-  - ✅ Containerization with **Docker** (ready for AWS)  
-  - ✅ **Hosted on Streamlit Cloud**
+- ✅ Deployment Complete (Interactive **Streamlit app** live and running)
 
 🌐 **Live Demo:** [PropertyIQ](https://realestateinvestmentvaluationapp-ac5hrwunnzbgqxbxlkuwjz.streamlit.app/)
 
@@ -175,5 +172,6 @@ streamlit run app.py
 - 📱 **Responsive:** Works on desktop and mobile
 
 ---
+
 
 **🌟 Star this repo if it helped you!** | **🔗 [Live Demo - PropertyIQ](https://realestateinvestmentvaluationapp-ac5hrwunnzbgqxbxlkuwjz.streamlit.app/)**
