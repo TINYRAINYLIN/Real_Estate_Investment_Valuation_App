@@ -1,14 +1,17 @@
-# 🏡 Real Estate Investment Valuation App
+# 🏡 PropertyIQ
 
 ## 📌 Current Status  
+✅ **Production Ready - Live on Streamlit Cloud**
+
 - ✅ Data Preparation, Feature Engineering, Modeling, Evaluation  
 - ✅ Explainability (SHAP global + local interpretability)  
 - ✅ Geospatial Analysis (Folium heatmaps + property-level maps)  
-- ⏳ Deployment phase in progress:  
-  - Building interactive **Streamlit app** for predictions  
-  - Containerization with **Docker**  
-  - Hosting planned on **AWS/Streamlit Cloud**  
+- ✅ **Deployment Complete:**  
+  - ✅ Interactive **Streamlit app** live and running
+  - ✅ Containerization with **Docker** (ready for AWS)  
+  - ✅ **Hosted on Streamlit Cloud**
 
+🌐 **Live Demo:** [PropertyIQ](https://realestateinvestmentvaluationapp-ac5hrwunnzbgqxbxlkuwjz.streamlit.app/)
 
 ---
 
@@ -18,7 +21,7 @@ An end-to-end machine learning pipeline for predicting residential property valu
 - Reduced **RMSE by ~150k** compared to baseline Ridge Regression  
 - Delivered **explainable AI** insights with SHAP (global + local explanations)  
 - Built **geospatial visualizations** (heatmaps & property-level maps) to highlight regional pricing trends  
-- Deployment planned on **AWS with Streamlit + Docker + S3**  
+- **Live on Streamlit Cloud** with Docker + AWS deployment options
 
 ---
 
@@ -50,27 +53,22 @@ An end-to-end machine learning pipeline for predicting residential property valu
 
 ## 🔧 Modeling & Evaluation  
 
-1. **Ridge Regression (GridSearchCV)**  
-   - Pipeline: `StandardScaler → Ridge`  
-   - GridSearchCV over α = {150, 180, 200, 230, 250}  
-
-2. **Random Forest (RandomizedSearchCV)**  
+1. **Random Forest (RandomizedSearchCV)** ⭐ **Primary Model**
    - Tuned over `n_estimators`, `max_depth`, `min_samples_split`, `min_samples_leaf`, `max_features`, `bootstrap`  
    - 5-fold CV, 25 randomized candidates
    - **Best Params (Random Forest):**  
       `n_estimators=959, max_depth=10, max_features=0.7, min_samples_split=6, min_samples_leaf=2, bootstrap=True`
- 
 
-3. **LightGBM (RandomizedSearchCV)**  
+2. **LightGBM (RandomizedSearchCV)**  
    - Tuned over `n_estimators`, `learning_rate`, `num_leaves`, `max_depth`, `min_child_samples`, `subsample`, `colsample_bytree`, `reg_alpha`, `reg_lambda`  
-   - Search in progress  
+   - 5-fold CV optimization
 
-4. **Evaluation Metrics**  
+3. **Evaluation Metrics**  
    - **R² (train/test)**  
    - **Adjusted R² (test)**  
    - **RMSE, MAE, Median AE**  
    - **MAPE (%)**  
-   - **% of predictions within $10k of true value**  
+   - **% of predictions within $10k/$20k/$50k of true value**  
 
 ---
 
@@ -78,10 +76,10 @@ An end-to-end machine learning pipeline for predicting residential property valu
 
 | Model          | R² (Test) | Adj R² (Test) | RMSE     | MAE     | MAPE   | Within $10k | Within $20k | Within $50k | Within 5% | Within 10% |
 |----------------|-----------|---------------|----------|---------|--------|-------------|-------------|-------------|-----------|------------|
-| **Ridge**      | 0.6962    | 0.6919        | 422,633  | 117,826 | 52.37% | 8.85%       | 16.98%      | 40.10%      | 18.84%    | 34.36%     |
 | **RandomForest** | 0.8743  | 0.8725        | 271,898  | 10,989  | 2.06%  | 85.23%      | 95.13%      | 98.60%      | 93.85%    | 97.77%     |
 | **LightGBM**   | 0.8401    | 0.8378        | 306,639  | 24,478  | 5.74%  | 53.30%      | 78.40%      | 94.17%      | 72.80%    | 88.02%     |
 
+**🏆 Random Forest** selected as primary model for deployment due to superior accuracy and precision.
 
 ---
 
@@ -98,18 +96,84 @@ An end-to-end machine learning pipeline for predicting residential property valu
 ---
 
 ### Geospatial Analysis  
-- **Heatmap:** Clusters of high-value properties around Santa Monica, Beverly Hills, and coastal LA  
-- **CircleMarker Map:** Property-level predictions with interactive color coding  
 
-🌍 Example Maps:  
-![Heatmap](https://github.com/TINYRAINYLIN/Real_Estate_Investment_Valuation_App/blob/main/reports/figures/Heatmap.png)
+**Folium Interactive Maps:**  
+- **Heatmap:** Visualizes property density and value distribution across LA, Orange, and Ventura counties  
+- **Property-Level Map:** Individual markers with popup details (price, sqft, bedrooms, bathrooms)  
+- **Insights:** Clear geographic clustering of high-value properties in coastal areas and affluent neighborhoods  
 
+📍 Example Maps:  
+![Heatmap](https://github.com/TINYRAINYLIN/Real_Estate_Investment_Valuation_App/blob/main/reports/figures/Heatmap.png)  
+![Property Map](https://github.com/TINYRAINYLIN/Real_Estate_Investment_Valuation_App/blob/main/reports/figures/CircleMarker.png)  
 
 ---
 
 ## 🛠️ Tech Stack  
 - **Python**: Pandas, NumPy, Scikit-learn, LightGBM  
-- **ML Models**: Ridge, Random Forest, LightGBM  
-- **Explainability**: SHAP  
+- **ML Models**: Random Forest (Primary), LightGBM  
+- **Web App**: Streamlit with interactive UI
+- **Deployment**: Streamlit Cloud (Live) + AWS EC2 option
+- **Containerization**: Docker + Docker Compose
 - **Visualization**: Matplotlib, Seaborn, Folium  
-- **Deployment**: Streamlit, **AWS (EC2, S3, Docker, optional SageMaker)**  
+- **Explainability**: SHAP
+
+---
+
+## ☁️ Deployment  
+
+### 🌐 Streamlit Cloud (Live)
+- **Interactive web app** for real-time property value predictions  
+- **Free hosting** on Streamlit Cloud
+- **Features:**  
+  - Sidebar inputs → sqft, bedrooms, bathrooms, year built, ZIP code, garage, pool
+  - Output → **Predicted price** (formatted as $123,456)  
+  - **Random Forest model** (87.4% R²) with 213 engineered features
+  - Property summary with price per sqft calculation
+
+### 🏗️ AWS Deployment (Alternative)
+- **Complete infrastructure** with Docker + EC2 + S3
+- **Model artifacts** stored on S3  
+- **Containerized app** for scalability
+- **Production-ready** with monitoring and auto-scaling options
+
+---
+
+## 🚀 Next Steps  
+- ✅ **PropertyIQ deployed and live on Streamlit Cloud**
+- [ ] Add SHAP explainability for feature importance in web app
+- [ ] Implement geospatial visualization with Folium maps in app
+- [ ] Add model comparison interface (Random Forest vs LightGBM)
+- [ ] Create property comparison feature
+- [ ] Add historical price trend analysis
+- [ ] Optimize for mobile responsiveness
+
+---
+
+## 🚀 Quick Start
+
+### Try the Live App
+🌐 **[PropertyIQ - Live Demo](https://realestateinvestmentvaluationapp-ac5hrwunnzbgqxbxlkuwjz.streamlit.app/)**
+
+### Run Locally
+```bash
+# Clone repository
+git clone https://github.com/TINYRAINYLIN/Real_Estate_Investment_Valuation_App.git
+cd Real_Estate_Investment_Valuation_App
+
+# Install dependencies
+pip install -r requirements.txt
+
+# Run Streamlit app
+streamlit run app.py
+```
+
+### Key Features
+- 🏠 **Property Input:** Living area, bedrooms, bathrooms, year built, location
+- 🎯 **AI Prediction:** Random Forest model (87.4% R²) 
+- 📊 **Smart Features:** 213 engineered features with smart defaults
+- 💰 **Instant Results:** Property value + price per sqft
+- 📱 **Responsive:** Works on desktop and mobile
+
+---
+
+**🌟 Star this repo if it helped you!** | **🔗 [Live Demo - PropertyIQ](https://realestateinvestmentvaluationapp-ac5hrwunnzbgqxbxlkuwjz.streamlit.app/)**
