@@ -1,0 +1,3 @@
+@echo off
+echo Starting Zillow Property Predictor...
+streamlit run app.py

@@ -1,0 +1,10 @@
+# Example Terraform variables
+# Copy this file to terraform.tfvars and update with your values
+
+aws_region      = "us-east-1"
+environment     = "production"
+s3_bucket_name  = "zillow-ml-models-yourname"
+instance_type   = "t2.medium"
+key_name        = "your-ec2-key-pair"
+ssh_cidr_blocks = ["YOUR.IP.ADDRESS/32"]  # Your IP for SSH access
+use_elastic_ip  = false
