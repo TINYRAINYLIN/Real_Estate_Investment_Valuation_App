@@ -42,11 +42,11 @@ chmod +x upload_to_s3.sh
 ./upload_to_s3.sh $BUCKET_NAME
 ```
 
-Or manually:
+Or manually (aligns with app paths):
 ```bash
-aws s3 cp ../artifacts/best_ridge.pkl s3://$BUCKET_NAME/artifacts/
-aws s3 cp ../artifacts/best_randomforest.pkl s3://$BUCKET_NAME/artifacts/
-aws s3 cp ../artifacts/best_lightgbm.pkl s3://$BUCKET_NAME/artifacts/
+aws s3 cp ../notebook/Best_Models/best_randomforest.pkl s3://$BUCKET_NAME/notebook/Best_Models/
+aws s3 cp ../notebook/Best_Models/best_lightgbm.pkl s3://$BUCKET_NAME/notebook/Best_Models/
+aws s3 cp ../artifacts/feature_names.json s3://$BUCKET_NAME/artifacts/
 ```
 
 ## 🖥️ Step 2: Launch EC2 Instance
@@ -140,9 +140,10 @@ cd <your-repo>
 # Configure AWS credentials (if not using IAM role)
 aws configure
 
-# Download models
+# Download models and feature names
 export S3_BUCKET="zillow-ml-models-<your-name>"
-aws s3 sync s3://$S3_BUCKET/artifacts/ ./artifacts/
+aws s3 sync s3://$S3_BUCKET/notebook/Best_Models/ ./notebook/Best_Models/
+aws s3 cp s3://$S3_BUCKET/artifacts/feature_names.json ./artifacts/feature_names.json
 ```
 
 ### 4.3 Build and Run Docker Container
@@ -300,12 +301,10 @@ aws s3 sync s3://$S3_BUCKET/artifacts/ ./artifacts/
 - [Streamlit Deployment Guide](https://docs.streamlit.io/streamlit-community-cloud/get-started/deploy-an-app)
 - [AWS S3 Documentation](https://docs.aws.amazon.com/s3/)
 
-## 🎯 Next Steps
+## 🎯 AWS Quick Checklist
 
-1. ✅ Complete feature engineering in `app.py` (match 213 training features)
-2. ✅ Test locally with Docker
-3. ✅ Deploy to EC2
-4. ✅ Add SHAP explanations to predictions
-5. ✅ Setup monitoring and alerts
-6. ✅ Add CI/CD pipeline (GitHub Actions)
-7. ✅ Consider AWS SageMaker for production ML deployment
+1. Upload models + feature_names to S3
+2. Launch EC2 and run `aws_setup.sh`
+3. `aws s3 sync` models and `feature_names.json` down to the instance
+4. `./deploy/deploy_to_ec2.sh` (build + up)
+5. Verify at `http://<EC2-PUBLIC-IP>:8501`

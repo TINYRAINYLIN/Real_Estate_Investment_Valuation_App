@@ -19,7 +19,7 @@ This folder contains all scripts and configurations for deploying the Zillow Pro
 - **`terraform/terraform.tfvars.example`** - Example configuration
 
 ### Documentation
-- **`README_DEPLOYMENT.md`** - Comprehensive deployment guide
+- **`DEPLOY_AWS.md`** - Comprehensive AWS deployment guide
 - **`DEPLOYMENT_OPTIONS.md`** - Compare deployment methods
 
 ## 🚀 Quick Start
@@ -51,9 +51,8 @@ export S3_BUCKET="your-bucket-name"
 ## 📚 Documentation
 
 For detailed instructions, see:
-- **Quick Start (30 min):** [../QUICKSTART_DEPLOYMENT.md](../QUICKSTART_DEPLOYMENT.md)
-- **Full Guide:** [README_DEPLOYMENT.md](README_DEPLOYMENT.md)
-- **Checklist:** [../DEPLOYMENT_CHECKLIST.md](../DEPLOYMENT_CHECKLIST.md)
+- **Streamlit Cloud:** [../DEPLOY_GUIDE.md](../DEPLOY_GUIDE.md)
+- **Full AWS Guide:** [DEPLOY_AWS.md](DEPLOY_AWS.md)
 
 ## 🛠️ Usage
 
@@ -100,4 +99,4 @@ terraform apply
 
 ## 🆘 Troubleshooting
 
-See the troubleshooting section in [README_DEPLOYMENT.md](README_DEPLOYMENT.md)
+See the troubleshooting section in [DEPLOY_AWS.md](DEPLOY_AWS.md)

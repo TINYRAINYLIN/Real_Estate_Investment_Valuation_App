@@ -30,7 +30,7 @@ Choose the deployment method that best fits your needs and experience level.
 - ❌ No version control for infrastructure
 
 ### Quick Start
-Follow: [QUICKSTART_DEPLOYMENT.md](../QUICKSTART_DEPLOYMENT.md)
+Follow: [DEPLOY_GUIDE.md](../DEPLOY_GUIDE.md)
 
 **Time:** 30 minutes  
 **Cost:** ~$30/month (t2.medium)
@@ -268,11 +268,10 @@ predictor = model.deploy(
 
 ## 🆘 Need Help?
 
-- **Quick Start:** [QUICKSTART_DEPLOYMENT.md](../QUICKSTART_DEPLOYMENT.md)
-- **Detailed Guide:** [README_DEPLOYMENT.md](README_DEPLOYMENT.md)
-- **Checklist:** [DEPLOYMENT_CHECKLIST.md](../DEPLOYMENT_CHECKLIST.md)
+- **Streamlit Quick Guide:** [../DEPLOY_GUIDE.md](../DEPLOY_GUIDE.md)
+- **Detailed AWS Guide:** [DEPLOY_AWS.md](DEPLOY_AWS.md)
 - **AWS Docs:** [docs.aws.amazon.com](https://docs.aws.amazon.com)
 
 ---
 
-**Ready to deploy?** Start with the [Quick Start Guide](../QUICKSTART_DEPLOYMENT.md)!
+**Ready to deploy?** Start with the [Streamlit Guide](../DEPLOY_GUIDE.md)!

@@ -1,50 +1,50 @@
-#!/bin/bash
+#!/bin/bash  # use bash shell
 
 # AWS EC2 Setup Script for Zillow Property Predictor
 # Run this script on your EC2 instance after SSH connection
 
-set -e
+set -e  # exit on first error
 
 echo "🚀 Starting AWS EC2 setup for Zillow Property Predictor..."
 
-# Update system
+# Update system packages
 echo "📦 Updating system packages..."
-sudo apt-get update
-sudo apt-get upgrade -y
+sudo apt-get update          # refresh package index
+sudo apt-get upgrade -y      # apply upgrades
 
-# Install Docker
+# Install Docker prereqs
 echo "🐳 Installing Docker..."
-sudo apt-get install -y \
-    ca-certificates \
-    curl \
-    gnupg \
-    lsb-release
+sudo apt-get install -y \    # install base tools for apt over HTTPS
+    ca-certificates \        # CA certs for secure downloads
+    curl \                   # HTTP client
+    gnupg \                  # key management
+    lsb-release              # distro info helper
 
-sudo mkdir -p /etc/apt/keyrings
-curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+sudo mkdir -p /etc/apt/keyrings                     # ensure keyring dir exists
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg  # add Docker GPG key
 
-echo \
-  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
-  $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+echo \                                             # add Docker apt repo
+  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \"
+  "  $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 
-sudo apt-get update
-sudo apt-get install -y docker-ce docker-ce-cli containerd.io docker-compose-plugin
+sudo apt-get update                                 # refresh with Docker repo
+sudo apt-get install -y docker-ce docker-ce-cli containerd.io docker-compose-plugin  # install Docker engine + plugin
 
-# Add user to docker group
+# Let current user run docker without sudo (needs re-login)
 sudo usermod -aG docker $USER
 
-# Install Docker Compose
+# Install Docker Compose standalone
 echo "📦 Installing Docker Compose..."
-sudo curl -L "https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
-sudo chmod +x /usr/local/bin/docker-compose
+sudo curl -L "https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose  # download binary
+sudo chmod +x /usr/local/bin/docker-compose                                                                                                     # make executable
 
 # Install AWS CLI
 echo "☁️ Installing AWS CLI..."
-sudo apt-get install -y awscli
+sudo apt-get install -y awscli                                                                                                                   # aws s3, etc.
 
 # Install Git
 echo "📚 Installing Git..."
-sudo apt-get install -y git
+sudo apt-get install -y git                                                                                                                      # for pulling repo
 
 echo "✅ EC2 setup complete!"
 echo ""

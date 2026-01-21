@@ -17,16 +17,17 @@ echo "📦 Uploading model artifacts to S3..."
 # Create bucket if it doesn't exist
 aws s3 mb s3://$BUCKET_NAME 2>/dev/null || echo "Bucket already exists"
 
-# Upload artifacts
-echo "⬆️ Uploading files..."
+# Upload artifacts (feature names)
+echo "⬆️ Uploading feature metadata..."
 aws s3 sync ./artifacts/ s3://$BUCKET_NAME/artifacts/ \
     --exclude "*.csv" \
     --exclude "*.log"
 
-# Upload only model files
-aws s3 cp ./artifacts/best_ridge.pkl s3://$BUCKET_NAME/artifacts/
-aws s3 cp ./artifacts/best_randomforest.pkl s3://$BUCKET_NAME/artifacts/
-aws s3 cp ./artifacts/best_lightgbm.pkl s3://$BUCKET_NAME/artifacts/
+# Upload model files from training output path
+echo "⬆️ Uploading models..."
+aws s3 sync ./notebook/Best_Models/ s3://$BUCKET_NAME/notebook/Best_Models/ \
+    --exclude "*.csv" \
+    --exclude "*.log"
 
 echo "✅ Upload complete!"
 echo "📍 Artifacts available at: s3://$BUCKET_NAME/artifacts/"

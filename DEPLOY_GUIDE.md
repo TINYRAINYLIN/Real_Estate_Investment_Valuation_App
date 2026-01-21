@@ -1,4 +1,4 @@
-# 🚀 Deploy to Streamlit Cloud - Quick Guide
+# 🚀 Deploy Guide - Streamlit Cloud
 
 ## ✅ Pre-Deployment Checklist
 
@@ -18,9 +18,6 @@ git add src/__init__.py
 # Force add artifacts (they're in .gitignore but we need them)
 git add -f artifacts/feature_names.json
 git add -f notebook/Best_Models/best_randomforest.pkl
-
-# Add documentation
-git add STREAMLIT_DEPLOYMENT.md DEPLOYMENT_READY.md
 
 # Commit
 git commit -m "Add Streamlit app with Random Forest model"
@@ -188,7 +185,7 @@ Before sharing your app:
 
 Run the commands in Step 1, then follow Step 2 to deploy!
 
-**Questions?** Check `STREAMLIT_DEPLOYMENT.md` for detailed guide.
+**Questions?** See deploy/DEPLOY_AWS.md for the detailed AWS guide.
 
 ---
 

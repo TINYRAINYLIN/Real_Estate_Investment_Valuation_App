@@ -121,6 +121,8 @@ An end-to-end machine learning pipeline for predicting residential property valu
 
 ## ☁️ Deployment  
 
+**Docs:** [Streamlit guide](DEPLOY_GUIDE.md) · [AWS guide](deploy/DEPLOY_AWS.md)
+
 ### 🌐 Streamlit Cloud (Live)
 - **Interactive web app** for real-time property value predictions  
 - **Free hosting** on Streamlit Cloud
@@ -142,7 +144,6 @@ An end-to-end machine learning pipeline for predicting residential property valu
 - ✅ **PropertyIQ deployed and live on Streamlit Cloud**
 - [ ] Add SHAP explainability for feature importance in web app
 - [ ] Implement geospatial visualization with Folium maps in app
-- [ ] Add model comparison interface (Random Forest vs LightGBM)
 - [ ] Create property comparison feature
 - [ ] Add historical price trend analysis
 - [ ] Optimize for mobile responsiveness
